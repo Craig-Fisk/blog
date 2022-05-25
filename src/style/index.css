@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Courgette&text=Jane%20Doe");
 
+:root {
+	--primary-colour: #FF7100;
+	--primary-active-colour: #FFB300;
+	--inverse-colour: #fff;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;

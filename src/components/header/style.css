@@ -1,68 +1,89 @@
 .header {
-	height: 100px;;
+	text-align: center;
+	display: block;
+	margin-top: 3rem;
 }
 
 .header h1 {
-	float: left;
-	margin: 0;
-	padding: 0 15px;
-	font-size: 40px;
-	line-height: 100px;
-	font-weight: 400;
-	font-family: 'Courgette', 'Helvetica Neue', arial, sans-serif;;
-	color: #FFC107;
+	font-size: 4rem;
+	color: var(--primary-colour);
+	font-family: 'Mochiy Pop One', sans-serif;
+	margin: 0 0 2rem;
 }
 
-.header nav {
-	float: right;
-	font-size: 100%;
+nav,
+nav.closed {
+	visibility: hidden;
+	height: 0px;
+	overflow: hidden;
 }
 
-.header nav a {
-	display: inline-block;
-	height: 56px;
-	line-height: 100px;
-	margin: 0 15px;
-	min-width: 50px;
-	text-align: center;
-	background: rgba(255,255,255,0);
-	text-decoration: none;
-	color: #333;
-	will-change: background-color;
-	transition-property: color;
-	transition-duration: 300ms;
-	text-transform: uppercase;
-	position: relative;
+nav.open {
+	visibility: visible;
+	height: auto;
 }
 
-.header nav a:hover,
-.header nav a:active,
-.header nav a.active {
-	color: #FFC107;
+nav a,
+nav a:visited {
+	font-size: 4.5rem;
+	color: #000;
+	font-family: 'Rampart One', cursive;
+	display: block;
 }
 
-.header nav a:after {
-	content: '';
-	width: 0%;
-	border-bottom: 3px solid #FFC107;
-	position: absolute;
-	bottom: -12px;
-	left: 0;
-	transition-duration: width;
-	transition-duration: 300ms;
-
+nav a:hover {
+	color: var(--primary-colour);
 }
 
-.header nav a:hover:after, .header nav a.active:after {
-	width: 70%
+nav a.active {
+	color: var(--primary-colour);
 }
 
-@media all and (max-width: 728px) {
-	.header h1{
-		font-size: 2rem;
+button.round {
+	width: 40px;
+	height: 40px;
+	line-height: 1;
+	padding: 1rem;
+	border: none;
+	background-color: var(--primary-colour);
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+button.round:hover {
+	background-color: var(--primary-active-colour);
+}
+
+button.round svg {
+	width: 100%;
+	height: auto;
+	color: var(--inverse-colour);
+	fill: currentColor;
+}
+
+@media all and (min-width: 1024px) {
+	nav,
+	nav.open,
+	nav.closed {
+		visibility: visible;
+		height: auto;
+		overflow: auto;
+		display: inline-flex;
+		width: 600px;
+		margin: 0 auto;
+		justify-content: space-between;
 	}
-  .header nav a{
-		line-height: 100px;
-		margin: 0 8px;
-  }
+
+	.header h1 {
+		font-size: 5rem;
+	}
+
+	nav a {
+		font-size: 4.5rem;
+		display: inline;
+	}
+
+	button.round {
+		display: none;
+	}
 }
