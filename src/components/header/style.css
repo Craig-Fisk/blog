@@ -66,7 +66,7 @@ button.round svg {
 	nav.open,
 	nav.closed {
 		visibility: visible;
-		height: auto;
+		height: initial;
 		overflow: auto;
 		display: inline-flex;
 		width: 600px;

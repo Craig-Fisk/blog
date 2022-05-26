@@ -1,91 +1,52 @@
-.home {
-  padding: 56px 20px;
-  width: 100%;
-}
-
-.about {
-  display: flex;
-}
-
-.imageContainer {
-  flex: 1;
-}
-
-.image {
-	height: 30vw;
-	background-image: url(/assets/profile.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-.quote {
-  flex: 1;
+.container {
 	display: flex;
-	flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url("/assets/quotes.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+	flex-wrap: wrap;
 }
 
-.details{
-	font-family: serif;
-	font-size: 32px;
-	font-style: italic;
-	padding-left: 32px;
-	text-align: center;
-	color: gray;
-	padding-bottom: 32px;
+.g1_2 {
+	width: 100%;
 }
 
-.author{
-	font-size: 16px;
-  color: black;
+h2 {
+	font-size: var(--h2-size-m);
+	font-family: var(--heading-font);
 }
 
-.bio{
-	margin: 40px auto;
-	display:flex;
-	justify-content: center;
+p {
+	font-size: var(--text-size-m);
 }
 
-.bioleft, .bioright{
-	max-width: 25%;
-	text-align: justify;
+.linkCard {
+	border: 4px solid #000;
+	display: inline-flex;
+	margin-bottom: 2rem;
 }
 
-.bioleft{
-	padding-right: 16px;
+.linkCard img {
+	width: 100%;
 }
 
-.bioright{
-	padding-left: 16px;
+.linkCard:hover {
+	border-color: var(--primary-colour);
 }
 
-@media all and (max-width: 728px) {
-	.home {
-		padding: 16px;
+.floatRight {
+	float: right;
+	margin-left: 2rem;
+	border: 4px solid var(--base-colour);
+	border-radius: 50%;
+}
+
+@media all and (min-width: 1024px) {
+	.g1_2 {
+		width: 50%;
 	}
 
-  .about, .bio {
-		flex-direction: column;
+	h2 {
+		font-size: var(--h2-size-d);
 	}
 
-	.details {
-		padding: 16px 0 0 0;
-		font-size: 1.5rem;
-	}
-
-	.image {
-		height: 50vw;
-		width: 100%;
-	}
-
-	.bioleft, .bioright{
-		max-width: 100%;
-		text-align: justify;
-		padding: 0;
+	p {
+		font-size: var(--text-size-d);
 	}
 }
-

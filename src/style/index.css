@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Courgette&text=Jane%20Doe");
 
 :root {
+	--base-colour: #454545;
 	--primary-colour: #FF7100;
 	--primary-active-colour: #FFB300;
 	--inverse-colour: #fff;
+	--heading-font: 'Mochiy Pop One', sans-serif;
+	--h2-size-m: 2.8rem;
+	--h2-size-d: 4rem;
+	--text-font: 'Nunito', sans-serif;
+	--text-size-m: 1.6rem;
+	--text-size-d: 1.6rem;
 }
 
 html, body {
@@ -12,9 +19,9 @@ html, body {
 	padding: 0 1vw;
 	margin: 0;
 	background: #FAFAFA;
-	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-family: var(--text-font);
 	font-weight: 400;
-	color: #444;
+	color: var(--base-colour);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
