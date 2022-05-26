@@ -26,6 +26,6 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string"}
       - { label: "Cover", name: "cover", widget: "image"}
-      - { label: "Thumbnail", name: "cover", widget: "image"}
+      - { label: "Card", name: "card", widget: "image"}
       - { label: "Body", name: "body", widget: "markdown"}
 
