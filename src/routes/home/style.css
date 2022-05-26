@@ -18,8 +18,9 @@ p {
 
 .linkCard {
 	border: 4px solid #000;
-	display: inline-flex;
+	display: flex;
 	margin-bottom: 2rem;
+	margin-right: 0px;
 }
 
 .linkCard img {
@@ -37,6 +38,49 @@ p {
 	border-radius: 50%;
 }
 
+.blog h3 {
+	font-size: var(--h3-size-m);
+	font-family: var(--text-font);
+}
+
+.tags {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+}
+
+.tag {
+	font-size: var(--caption-size-m);
+	font-family: var(--text-font);
+	color: var(--base-colour);
+	background-color: var(--primary-soft-colour);
+	text-align: center;
+	padding: 10px 20px;
+	margin-right: 15px;
+	border-radius: 10px;
+}
+
+.blog {
+	border-bottom: 1px solid var(--base-colour);
+	padding-bottom: 20px;
+}
+
+.blog .content {
+	font-size: var(--text-size-m);
+	font-family: var(--text-font);
+	margin-bottom: 20px;
+}
+
+.buttonLink {
+	background-color: var(--primary-colour);
+	font-size: var(--text-size-m);
+	font-family: var(--heading-font);
+	color: var(--inverse-colour);
+	border-radius: 10px;
+	padding: 10px 20px;
+	display: inline-block;
+}
+
 @media all and (min-width: 1024px) {
 	.g1_2 {
 		width: 50%;
@@ -48,5 +92,18 @@ p {
 
 	p {
 		font-size: var(--text-size-d);
+	}
+
+	.blog h3 {
+		font-size: var(--h3-size-d);
+	}
+
+	.tag {
+		font-size: var(--caption-size-d);
+	}
+
+	.linkCard {
+		display: inline-flex;
+		margin-right: 50px;
 	}
 }

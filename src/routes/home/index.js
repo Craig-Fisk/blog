@@ -38,6 +38,26 @@ const Home = (props) => {
 				<Markdown>
 					{ routeData.data.content }
 				</Markdown>
+				<h2>Latest Blog</h2>
+				{
+					routeData.data.blog.map((item) =>
+						(<div class={style.blog}>
+							<h3>{item.data.details.title}</h3>
+							<div class={style.tags}>
+								{item.data.details.tags.split(', ').map(tag => (
+									<span class={style.tag}>{tag}</span>
+								))}
+							</div>
+							<div class={style.content}>
+								<Markdown>
+									{ item.data.details.snippet }
+								</Markdown>
+							</div>
+							<Link href={item.url} class={style.buttonLink}>Read More</Link>
+						</div>)
+					)
+				}
+				
 			</div>
 		</div>
 	);

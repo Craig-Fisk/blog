@@ -2,6 +2,7 @@
 title: Wanderlust
 date: 2019-08-27T18:44:24.217Z
 tags: 'travel, philosophy, hobby'
+snippet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales neque sodales ut etiam sit amet nisl purus in. Nunc sed augue lacus viverra vitae congue eu. At augue eget arcu dictum varius.'
 ---
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem #accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 

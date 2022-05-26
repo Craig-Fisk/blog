@@ -2,6 +2,7 @@
 title: Visiting Goa
 date: 2019-09-07T05:43:53.681Z
 tags: 'travel, india, goa'
+snippet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales neque sodales ut etiam sit amet nisl purus in. Nunc sed augue lacus viverra vitae congue eu. At augue eget arcu dictum varius.'
 ---
 Lorem ipsum dolor sit amet, mei in iracundia comprehensam, dicit phaedrum ea vis. Ei purto iusto quo, nonumy honestatis usu no. Eam at lorem audire eligendi. Modus iriure dignissim has in, sed ut liber dicit mediocritatem. Et sed harum graecis, vitae admodum mel et, iracundia referrentur an sea.
 

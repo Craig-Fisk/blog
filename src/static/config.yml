@@ -15,6 +15,7 @@ collections:
       - { label: "Cover", name: "cover", widget: "image", required: false}
       - { label: "Tags", name: "tags", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown"}
+      - { label: "Snippet", name: "snippet", widget: "markdown"}
   - name: "projects"
     label: "Projects"
     label_singular: "Project"
