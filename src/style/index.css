@@ -41,8 +41,18 @@ html, body {
 
 
 a {
-	text-decoration: none;
-	color: #333;
+	text-decoration: underline;
+	color: #000;
+}
+
+a:hover,
+a:active {
+	text-decoration: underline;
+	color: var(--primary-colour);
+}
+
+p {
+	font-size: var(--text-size-m);
 }
 
 .loading {
@@ -58,6 +68,11 @@ a {
 	position: relative;
 }
 
+h2 {
+	font-size: var(--h2-size-m);
+	font-family: var(--heading-font);
+}
+
 @keyframes placeHolderShimmer{
   0% {
       background-position: -468px 0;
@@ -65,4 +80,14 @@ a {
   100% {
       background-position: 468px 0;
   }
+}
+
+@media all and (min-width: 1024px) {
+	h2 {
+		font-size: var(--h2-size-d);
+	}
+
+	p {
+		font-size: var(--text-size-d);
+	}
 }

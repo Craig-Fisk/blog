@@ -25,6 +25,23 @@ function generateBlogPageData(blog) {
 	};
 }
 
+function generateProjectPageData(project) {
+	let data;
+	if (project.format === 'md') {
+		const { content } = parseMD(fs.readFileSync(join('content', 'project', project.id), 'utf-8'));
+		data = content;
+	} else {
+		data = fs.readFileSync(join('content', 'project', project.id), 'utf-8').replace(/---(.*(\r)?\n)*---/, '');
+	}
+	return {
+		url: `/projects/${project.id}`,
+		data: {
+			details: project.details,
+			content: data
+		}
+	};
+}
+
 module.exports = () => {
 	const pages = [
 		{
@@ -51,6 +68,9 @@ module.exports = () => {
 
 	const blogPages = [...blogs.edges.map(blog => generateBlogPageData(blog))];
 	pages.push(...blogPages);
+
+	const projectPages = [...projects.edges.map(project => generateProjectPageData(project))];
+	pages.push(...projectPages);
 
 	pages[0].data['blog'] = blogPages.slice(0, 3);
 	pages[0].data['projects'] = projects;

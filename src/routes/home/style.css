@@ -7,15 +7,6 @@
 	width: 100%;
 }
 
-h2 {
-	font-size: var(--h2-size-m);
-	font-family: var(--heading-font);
-}
-
-p {
-	font-size: var(--text-size-m);
-}
-
 .linkCard {
 	border: 4px solid #000;
 	display: flex;

@@ -11,6 +11,10 @@
 	margin: 0 0 2rem;
 }
 
+.header a {
+	text-decoration: none;
+}
+
 nav,
 nav.closed {
 	visibility: hidden;
@@ -29,6 +33,7 @@ nav a:visited {
 	color: #000;
 	font-family: 'Rampart One', cursive;
 	display: block;
+	text-decoration: none;
 }
 
 nav a:hover {

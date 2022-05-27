@@ -21,7 +21,6 @@ const Home = (props) => {
 	},[]);
 
 	const [routeData, isLoading] = usePrerenderData(props);
-	console.log(routeData);
 
 	return !isLoading ? (
 		<div class={style.container}>
