@@ -70,6 +70,14 @@
 	border-radius: 10px;
 	padding: 10px 20px;
 	display: inline-block;
+	text-decoration: none;
+}
+
+.buttonLink:hover,
+.buttonLink:active {
+	color: var(--inverse-colour);
+	background-color: var(--primary-active-colour);
+	text-decoration: none;
 }
 
 @media all and (min-width: 1024px) {
