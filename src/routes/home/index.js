@@ -25,7 +25,7 @@ const Home = (props) => {
 	const [routeData, isLoading] = usePrerenderData(props);
 	console.log(routeData);
 
-	return (
+	return !isLoading ? (
 		<div class={style.container}>
 			<div class={style.g1_2}>
 				<h2>Projects</h2>
@@ -36,11 +36,11 @@ const Home = (props) => {
 				<h2>About</h2>
 				<img src={mugshot} class={style.floatRight} alt="Head shot of Craig Fisk" />
 				<Markdown>
-					{ routeData.data.content }
+					{ routeData?.data?.content }
 				</Markdown>
 				<h2>Latest Blog</h2>
 				{
-					routeData.data.blog.map((item) =>
+					routeData?.data?.blog.map((item) =>
 						(<div class={style.blog}>
 							<h3>{item.data.details.title}</h3>
 							<div class={style.tags}>
@@ -60,7 +60,7 @@ const Home = (props) => {
 				
 			</div>
 		</div>
-	);
+	) : (<div>Loading</div>);
 };
 
 export default Home;

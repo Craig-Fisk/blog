@@ -35,7 +35,7 @@ function getPreview(data) {
 
 function getFolders(source) {
 	const isDirectory = source => fs.lstatSync(source).isDirectory();
-	const isAValidFile = source => !fs.lstatSync(source).isDirectory() && source.endsWith('.md');
+	const isAValidFile = source => !fs.lstatSync(source).isDirectory() && (source.endsWith('.md') || source.endsWith('.json'));
 	const getAllListings = source =>
 		fs.readdirSync(source).map(name => join(source, name));
 	let allContent = getAllListings(source);

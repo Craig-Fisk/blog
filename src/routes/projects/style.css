@@ -1,0 +1,21 @@
+.projects {
+    padding: 0 5%;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 100%;
+}
+
+@media all and (min-width: 1024px) {
+    .project {
+        width: 33%;
+        flex-grow: 0;
+    }
+}

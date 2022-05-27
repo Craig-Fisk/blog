@@ -21,8 +21,6 @@ collections:
     label_singular: "Project"
     folder: "content/project"
     create: true
-    format: "json"
-    extension: "json"
     fields:
       - { label: "Title", name: "title", widget: "string"}
       - { label: "Cover", name: "cover", widget: "image"}
