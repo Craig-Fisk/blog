@@ -14,6 +14,8 @@
 	--text-size-d: 1.6rem;
 	--h3-size-m: 2.4rem;
 	--h3-size-d: 2.4rem;
+	--h4-size-m: 1.8rem;
+	--h4-size-d: 1.8rem;
 	--caption-size-m: 1.2rem;
 	--caption-size-d: 1.2rem;
 }
@@ -73,6 +75,16 @@ h2 {
 	font-family: var(--heading-font);
 }
 
+h3 {
+	font-size: var(--h3-size-m);
+	font-family: var(--heading-font);
+}
+
+h4 {
+	font-size: var(--h4-size-m);
+	font-family: var(--heading-font);
+}
+
 @keyframes placeHolderShimmer{
   0% {
       background-position: -468px 0;
@@ -85,6 +97,14 @@ h2 {
 @media all and (min-width: 1024px) {
 	h2 {
 		font-size: var(--h2-size-d);
+	}
+
+	h3 {
+		font-size: var(--h3-size-d);
+	}
+
+	h4 {
+		font-size: var(--h4-size-d);
 	}
 
 	p {
