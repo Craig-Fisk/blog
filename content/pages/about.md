@@ -1,4 +1,8 @@
-Lead Engineer @ Qa 
+---
+title: About
+---
+
+Lead Engineer @ Qa
 
 Building web component libraries and micro front ends using React.
 Teaching coding and 3D modelling @ Code Club.

@@ -1,3 +1,7 @@
+---
+title: Resume
+---
+
 Lead Engineer @ Qa
 
 Building web component libraries and micro front ends using React.

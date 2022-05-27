@@ -33,5 +33,6 @@ collections:
     folder: "content/pages"
     create: false
     fields:
+      - { label: "Title", name: "title", widget: "string"}
       - { label: "Body", name: "body", widget: "markdown"}
 
