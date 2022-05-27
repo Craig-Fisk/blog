@@ -3,7 +3,9 @@ const { join } = require('path');
 const fs = require('fs');
 const parseMD = require('parse-md').default;
 
-const [blogs, project] = generateFileList(join(__dirname, 'content')).nodes;
+const files = generateFileList(join(__dirname, 'content')).nodes;
+const blogs = files.find(elem => elem.id === 'blog');
+const projects = files.find(elem => elem.id === 'project');
 
 function generateBlogPageData(blog) {
 	let data;
@@ -44,13 +46,14 @@ module.exports = () => {
 
 	pages.push({
 		url: '/projects/',
-		data: project
+		data: projects
 	});
 
 	const blogPages = [...blogs.edges.map(blog => generateBlogPageData(blog))];
 	pages.push(...blogPages);
 
 	pages[0].data['blog'] = blogPages.slice(0, 3);
+	pages[0].data['projects'] = projects;
 
 	return pages;
 };

@@ -13,9 +13,22 @@
     width: 100%;
 }
 
+.linkCard {
+	border: 4px solid #000;
+	display: flex;
+	margin-bottom: 2rem;
+	margin-right: 0px;
+    width: 100%;
+}
+
+.linkCard img {
+	width: 100%;
+}
+
 @media all and (min-width: 1024px) {
-    .project {
-        width: 33%;
+    .linkCard {
+		display: inline-flex;
+        width: 32%;
         flex-grow: 0;
-    }
+	}
 }

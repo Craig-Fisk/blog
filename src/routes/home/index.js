@@ -4,8 +4,6 @@ import { useEffect } from 'preact/hooks';
 import {usePrerenderData} from "@preact/prerender-data-provider";
 import Markdown from 'markdown-to-jsx';
 import style from "./style";
-import reflector from '../../assets/reflector.png';
-import witch from '../../assets/a_witches_story.png';
 import mugshot from '../../assets/mugshot.png';
 
 const Home = (props) => {
@@ -29,8 +27,9 @@ const Home = (props) => {
 		<div class={style.container}>
 			<div class={style.g1_2}>
 				<h2>Projects</h2>
-				<Link href="/" class={style.linkCard}><img src={reflector} alt="Project: Reflector" /></Link>
-				<Link href="/" class={style.linkCard}><img src={witch} alt="Project: A Witches Story" /></Link>
+				{routeData.data.projects.edges.map(item => (
+                    <Link href={`/projects/${item.id}`} class={style.linkCard}><img src={item.details.card} alt={item.details.title} /></Link>
+                ))}
 			</div>
 			<div class={style.g1_2}>
 				<h2>About</h2>
