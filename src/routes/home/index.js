@@ -5,6 +5,7 @@ import { usePrerenderData } from '@preact/prerender-data-provider';
 import Markdown from 'markdown-to-jsx';
 import style from './style';
 import mugshot from '../../assets/mugshot.png';
+import Loader from '../../components/loader';
 
 const Home = (props) => {
 	/**
@@ -57,7 +58,7 @@ const Home = (props) => {
 			</div>
 		</div>
 	) : (
-		<div>Loading</div>
+		<Loader />
 	);
 };
 

@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import { usePrerenderData } from '@preact/prerender-data-provider';
+import Loader from '../../components/loader';
 import Markdown from 'markdown-to-jsx';
 import style from './style';
 
@@ -11,7 +12,7 @@ const resume = (props) => {
 			<Markdown>{routeData.data.content}</Markdown>
 		</div>
 	) : (
-		<div>Loading...</div>
+		<Loader />
 	);
 };
 

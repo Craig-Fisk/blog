@@ -3,6 +3,7 @@ import { Link } from 'preact-router';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import Markdown from 'markdown-to-jsx';
 import style from './style';
+import Loader from '../../components/loader';
 
 const blogs = (props) => {
 	const [routeData, isLoading] = usePrerenderData(props);
@@ -27,7 +28,7 @@ const blogs = (props) => {
 			))}
 		</div>
 	) : (
-		<div>Loading...</div>
+		<Loader />
 	);
 };
 

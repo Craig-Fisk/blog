@@ -5,20 +5,21 @@ import Markdown from 'markdown-to-jsx';
 import { FormattedCodeBlock } from './formatted-code-block';
 
 import style from './style';
+import Loader from '../../components/loader';
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
-	return (
-		<article class={style.blogcontainer}>
-			{getBlogBody(data, isLoading)}
-		</article>
-	);
+	return <article class={style.blogcontainer}>{getBlogBody(data, isLoading)}</article>;
 };
 
 function CodeBlock(props) {
-	const fallback = <pre><code>{props.children}</code></pre>;
+	const fallback = (
+		<pre>
+			<code>{props.children}</code>
+		</pre>
+	);
 	if (typeof window === 'undefined') {
-		return (fallback);
+		return fallback;
 	}
 	return (
 		<Suspense fallback={fallback}>
@@ -38,17 +39,7 @@ function InlineImage({ alt, title, src }) {
 
 function getBlogBody(data, isLoading) {
 	if (isLoading) {
-		return (
-			<div class={style.loadingPlaceholder}>
-				<h1 class={`${style.blogtitle} loading`} >&nbsp;</h1>
-				<caption class={`${style.blogsubtitle} loading`}>&nbsp;</caption>
-				<div class={style.blogbody}>
-					<div class={`${style.loadingBody} loading`} />
-					<div class={`${style.loadingBody} loading`} />
-					<div class={`${style.loadingBody} loading`} />
-				</div>
-			</div>
-		);
+		return <Loader />;
 	}
 
 	if (data && data.data) {
@@ -56,20 +47,25 @@ function getBlogBody(data, isLoading) {
 		return (
 			<div>
 				<h1 class={style.blogtitle}>{details.title}</h1>
-				{ details.subtitle && <caption class={style.blogsubtitle}>{details.subtitle}</caption> }
-				{ details.cover && <div class={style.blogcover} style={`background-image:url(${details.cover})`} /> }
+				{details.subtitle && <caption class={style.blogsubtitle}>{details.subtitle}</caption>}
+				{details.cover && (
+					<div class={style.blogcover} style={`background-image:url(${details.cover})`} />
+				)}
 				<div class={style.blogbody}>
-					<Markdown options={{
-						overrides: {
-							img: {
-								component: InlineImage
-							},
-							code: {
-								component: CodeBlock
+					<Markdown
+						options={{
+							overrides: {
+								img: {
+									component: InlineImage
+								},
+								code: {
+									component: CodeBlock
+								}
 							}
-						}
-					}}
-					>{ content }</Markdown>
+						}}
+					>
+						{content}
+					</Markdown>
 				</div>
 			</div>
 		);
