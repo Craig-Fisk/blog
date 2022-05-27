@@ -21,9 +21,17 @@ collections:
     label_singular: "Project"
     folder: "content/project"
     create: true
+    preview: false
     fields:
       - { label: "Title", name: "title", widget: "string"}
       - { label: "Cover", name: "cover", widget: "image"}
       - { label: "Card", name: "card", widget: "image"}
+      - { label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    folder: "content/pages"
+    create: false
+    fields:
       - { label: "Body", name: "body", widget: "markdown"}
 

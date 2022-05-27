@@ -4,8 +4,8 @@ const fs = require('fs');
 const parseMD = require('parse-md').default;
 
 const files = generateFileList(join(__dirname, 'content')).nodes;
-const blogs = files.find(elem => elem.id === 'blog');
-const projects = files.find(elem => elem.id === 'project');
+const blogs = files.find((elem) => elem.id === 'blog');
+const projects = files.find((elem) => elem.id === 'project');
 
 function generateBlogPageData(blog) {
 	let data;
@@ -13,7 +13,9 @@ function generateBlogPageData(blog) {
 		const { content } = parseMD(fs.readFileSync(join('content', 'blog', blog.id), 'utf-8'));
 		data = content;
 	} else {
-		data = fs.readFileSync(join('content', 'blog', blog.id), 'utf-8').replace(/---(.*(\r)?\n)*---/, '');
+		data = fs
+			.readFileSync(join('content', 'blog', blog.id), 'utf-8')
+			.replace(/---(.*(\r)?\n)*---/, '');
 	}
 	return {
 		url: `/blog/${blog.id}`,
@@ -31,7 +33,9 @@ function generateProjectPageData(project) {
 		const { content } = parseMD(fs.readFileSync(join('content', 'project', project.id), 'utf-8'));
 		data = content;
 	} else {
-		data = fs.readFileSync(join('content', 'project', project.id), 'utf-8').replace(/---(.*(\r)?\n)*---/, '');
+		data = fs
+			.readFileSync(join('content', 'project', project.id), 'utf-8')
+			.replace(/---(.*(\r)?\n)*---/, '');
 	}
 	return {
 		url: `/projects/${project.id}`,
@@ -49,10 +53,12 @@ module.exports = () => {
 			seo: {
 				cover: '/assets/profile.jpg'
 			},
-			data: parseMD(fs.readFileSync(join('content', 'pages', 'root', 'about.md'), 'utf-8'))
+			data: parseMD(fs.readFileSync(join('content', 'pages', 'about.md'), 'utf-8'))
 		},
-		{ url: '/contact/' },
-		{ url: '/contact/success' }
+		{
+			url: '/resume/',
+			data: parseMD(fs.readFileSync(join('content', 'pages', 'resume.md'), 'utf-8'))
+		}
 	];
 
 	// adding blogs list posts page
@@ -66,10 +72,10 @@ module.exports = () => {
 		data: projects
 	});
 
-	const blogPages = [...blogs.edges.map(blog => generateBlogPageData(blog))];
+	const blogPages = [...blogs.edges.map((blog) => generateBlogPageData(blog))];
 	pages.push(...blogPages);
 
-	const projectPages = [...projects.edges.map(project => generateProjectPageData(project))];
+	const projectPages = [...projects.edges.map((project) => generateProjectPageData(project))];
 	pages.push(...projectPages);
 
 	pages[0].data['blog'] = blogPages.slice(0, 3);
