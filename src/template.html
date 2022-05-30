@@ -20,31 +20,25 @@
 				<% } %>
 					<meta name="twitter:card"
 						content="<%= (htmlWebpackPlugin.options.seo && 'cover' in htmlWebpackPlugin.options.seo) ? 'summary_large_image' : 'summary'%>" />
-					<% if(htmlWebpackPlugin.options.seo && 'cover' in htmlWebpackPlugin.options.seo) {%>
-						<meta name="twitter:image" content="<%= htmlWebpackPlugin.options.seo.cover %>">
+					<meta name="twitter:image"
+						content="<%= (htmlWebpackPlugin.options.seo && 'cover' in htmlWebpackPlugin.options.seo) ? htmlWebpackPlugin.options.seo.cover : '/assets/icons/android-chrome-512x512.png' %>">
+					<% if(htmlWebpackPlugin.options.seo && 'subtitle' in htmlWebpackPlugin.options.seo) {%>
+						<meta property="twitter:description" content="<%= htmlWebpackPlugin.options.seo.subtitle %>" />
 						<% } %>
-							<% else { %>
-								<meta name="twitter:image" content="/assets/icons/android-chrome-512x512.png">
-								<% } %>
-									<% if(htmlWebpackPlugin.options.seo && 'subtitle' in htmlWebpackPlugin.options.seo)
-										{%>
-										<meta property="twitter:description"
-											content="<%= htmlWebpackPlugin.options.seo.subtitle %>" />
-										<% } %>
-											<meta name="twitter:creator" content="@the_fisk">
-											<% preact.headEnd %>
-												<link rel="preconnect" href="https://fonts.googleapis.com">
-												<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-												<link
-													href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Nunito:ital,wght@0,200;0,500;1,200;1,500&family=Rampart+One&display=swap"
-													rel="stylesheet">
-												<style>
-													body,
-													html {
-														font-size: 10px;
-														background-color: #EBEBEB;
-													}
-												</style>
+							<meta name="twitter:creator" content="@the_fisk">
+							<% preact.headEnd %>
+								<link rel="preconnect" href="https://fonts.googleapis.com">
+								<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+								<link
+									href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Nunito:ital,wght@0,200;0,500;1,200;1,500&family=Rampart+One&display=swap"
+									rel="stylesheet">
+								<style>
+									body,
+									html {
+										font-size: 10px;
+										background-color: #EBEBEB;
+									}
+								</style>
 </head>
 
 <body>
