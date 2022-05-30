@@ -51,7 +51,7 @@ module.exports = () => {
 		{
 			url: '/',
 			seo: {
-				cover: '/assets/profile.jpg'
+				cover: '/assets/icons/android-chrome-512x512.png'
 			},
 			data: parseMD(fs.readFileSync(join('content', 'pages', 'about.md'), 'utf-8'))
 		},
@@ -64,12 +64,18 @@ module.exports = () => {
 	// adding blogs list posts page
 	pages.push({
 		url: '/blogs/',
-		data: blogs
+		data: blogs,
+		seo: {
+			cover: '/assets/icons/android-chrome-512x512.png'
+		}
 	});
 
 	pages.push({
 		url: '/projects/',
-		data: projects
+		data: projects,
+		seo: {
+			cover: '/assets/icons/android-chrome-512x512.png'
+		}
 	});
 
 	const blogPages = [...blogs.edges.map((blog) => generateBlogPageData(blog))];
