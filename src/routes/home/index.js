@@ -41,7 +41,9 @@ const Home = (props) => {
 				<h2>Latest Blog</h2>
 				{routeData?.data?.blog.map((item) => (
 					<div class={style.blog}>
-						<h3>{item.data.details.title}</h3>
+						<Link href={item.url}>
+							<h3>{item.data.details.title}</h3>
+						</Link>
 						<div class={style.tags}>
 							{item.data.details.tags.split(', ').map((tag) => (
 								<span class={style.tag}>{tag}</span>
@@ -51,7 +53,7 @@ const Home = (props) => {
 							<Markdown>{item.data.details.snippet}</Markdown>
 						</div>
 						<Link href={item.url} class={style.buttonLink}>
-							Read More
+							Read full post
 						</Link>
 					</div>
 				))}

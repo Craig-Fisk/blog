@@ -12,7 +12,9 @@ const blogs = (props) => {
 			<h2 class={style.pageTitle}>Blog</h2>
 			{routeData.data.edges.map((item) => (
 				<div class={style.blog}>
-					<h3>{item.details.title}</h3>
+					<Link href={`/blog/${item.id}`}>
+						<h3>{item.details.title}</h3>
+					</Link>
 					<div class={style.tags}>
 						{item.details.tags.split(', ').map((tag) => (
 							<span class={style.tag}>{tag}</span>
@@ -22,7 +24,7 @@ const blogs = (props) => {
 						<Markdown>{item.details.snippet}</Markdown>
 					</div>
 					<Link href={`/blog/${item.id}`} class={style.buttonLink}>
-						Read More
+						Read full post
 					</Link>
 				</div>
 			))}
