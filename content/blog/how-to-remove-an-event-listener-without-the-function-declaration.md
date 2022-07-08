@@ -11,6 +11,13 @@ I learned a new feature in Javascript the other day whilst I was working on a ne
 
 The regular way of doing this would be by using `removeEventListener`
 
+<p class="codepen" data-height="300" data-theme-id="light" data-default-tab="js,result" data-slug-hash="GRxZKGm" data-user="the_fisk" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/the_fisk/pen/GRxZKGm">
+  Untitled</a> by Craig Fisk (<a href="https://codepen.io/the_fisk">@the_fisk</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 ```javascript
 const canvas = document.getElementById('canvas');
 
