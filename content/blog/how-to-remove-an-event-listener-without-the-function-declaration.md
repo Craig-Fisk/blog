@@ -11,27 +11,12 @@ I learned a new feature in Javascript the other day whilst I was working on a ne
 
 The regular way of doing this would be by using `removeEventListener`
 
-<p class="codepen" data-height="300" data-theme-id="light" data-default-tab="js,result" data-slug-hash="GRxZKGm" data-user="the_fisk" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-slug-hash="GRxZKGm" data-user="the_fisk" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/the_fisk/pen/GRxZKGm">
   Untitled</a> by Craig Fisk (<a href="https://codepen.io/the_fisk">@the_fisk</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-```javascript
-const canvas = document.getElementById('canvas');
-
-function handleTouchEnd() {
-  canvas.removeEventListener('touchmove', handleTouchMove);
-}
-
-function handleTouchMove() {
-  // Do Stuff on Touch Move
-}
-
-canvas.addEventListener('touchmove', handleTouchMove);
-canvas.addEventListener('touchend', handleTouchEnd);
-```
 
 This example will remove the `touchmove` event when the `touchend` event is fired.
 
@@ -41,43 +26,23 @@ There are two ways this can be solved, one of which was new to me:
 
 **Old way**
 
-```javascript
-const canvas = document.getElementById('canvas');
-
-function handleTouchEnd() {
-  canvas.removeEventListener('touchmove', boundHandleTouchMove);
-}
-
-function handleTouchMove() {
-  // Do Stuff on Touch Move
-}
-
-const boundHandleTouchMove = handleTouchMove.bind(this);
-
-canvas.addEventListener('touchmove', boundHandleTouchMove);
-canvas.addEventListener('touchend', handleTouchEnd);
-```
+<p class="codepen" data-height="383.904052734375" data-theme-id="light" data-default-tab="js,result" data-slug-hash="MWVyEbG" data-user="the_fisk" style="height: 383.904052734375px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/the_fisk/pen/MWVyEbG">
+  Bind Event Listener</a> by Craig Fisk (<a href="https://codepen.io/the_fisk">@the_fisk</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 This way creates a new function declaration with the bound context and assigns it to a const called `boundHandleTouchMove`, then this can be used as the reference for add and `removeEventListener`.
 
 **New way**
 
-```javascript
-const canvas = document.getElementById('canvas');
-const controller = new AbortController();
-
-function handleTouchEnd() {
-  controller.abort();
-}
-
-function handleTouchMove() {
-  // Do Stuff on Touch Move
-}
-
-canvas.addEventListener('touchmove', handleTouchMove, 
-  { signal: controller.signal });
-canvas.addEventListener('touchend', handleTouchEnd);
-```
+<p class="codepen" data-height="376.4012451171875" data-theme-id="light" data-default-tab="js,result" data-slug-hash="MWVyEJG" data-user="the_fisk" style="height: 376.4012451171875px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/the_fisk/pen/MWVyEJG">
+  Signal Event Listener Removal</a> by Craig Fisk (<a href="https://codepen.io/the_fisk">@the_fisk</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 This way we create an AbortController and store a reference to it in the const controller. We then pass a reference to the AbortControllers signal to the event listener via the signal property on the event listeners options parameter. We can then at any point, in this case when handleTouchEnd is called call the controller's abort function which removes the event listener.
 
