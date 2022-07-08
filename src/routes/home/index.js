@@ -39,24 +39,32 @@ const Home = (props) => {
 				<img src={mugshot} class={style.floatRight} alt="Head shot of Craig Fisk" />
 				<Markdown>{routeData?.data?.content}</Markdown>
 				<h2>Latest Blog</h2>
-				{routeData?.data?.blog.map((item) => (
-					<div class={style.blog}>
-						<Link href={item.url}>
-							<h3>{item.data.details.title}</h3>
-						</Link>
-						<div class={style.tags}>
-							{item.data.details.tags.split(', ').map((tag) => (
-								<span class={style.tag}>{tag}</span>
-							))}
+				{routeData?.data?.blog
+					.sort((a, b) =>
+						a.data.details.date > b.data.details.date
+							? -1
+							: a.data.details.date < b.data.details.date
+							? 1
+							: 0
+					)
+					.map((item) => (
+						<div class={style.blog}>
+							<Link href={item.url}>
+								<h3>{item.data.details.title}</h3>
+							</Link>
+							<div class={style.tags}>
+								{item.data.details.tags.split(', ').map((tag) => (
+									<span class={style.tag}>{tag}</span>
+								))}
+							</div>
+							<div class={style.content}>
+								<Markdown>{item.data.details.snippet}</Markdown>
+							</div>
+							<Link href={item.url} class={style.buttonLink}>
+								Read full post
+							</Link>
 						</div>
-						<div class={style.content}>
-							<Markdown>{item.data.details.snippet}</Markdown>
-						</div>
-						<Link href={item.url} class={style.buttonLink}>
-							Read full post
-						</Link>
-					</div>
-				))}
+					))}
 			</div>
 		</div>
 	) : (

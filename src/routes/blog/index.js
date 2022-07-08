@@ -18,14 +18,7 @@ function CodeBlock(props) {
 			<code>{props.children}</code>
 		</pre>
 	);
-	if (typeof window === 'undefined') {
-		return fallback;
-	}
-	return (
-		<Suspense fallback={fallback}>
-			<FormattedCodeBlock {...props} />
-		</Suspense>
-	);
+	return <FormattedCodeBlock {...props} />;
 }
 
 function InlineImage({ alt, title, src }) {
